@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './Components/UtcConverter';
+import UtcConverter from './Components/UtcConverter/UtcConverter';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <UtcConverter />
   </React.StrictMode>
 );
