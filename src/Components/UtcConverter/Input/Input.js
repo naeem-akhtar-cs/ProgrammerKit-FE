@@ -1,22 +1,27 @@
 import { useState } from "react";
-import "./Input.css";
+import Button from "react-bootstrap/Button";
 
-function Input() {
-  const [time, setTime] = useState(1679806593);
+function Input(props) {
+  const [userInput, setInput] = useState(0);
+  const convertInput = () => {
+    props.saveUserInput(userInput);
+  };
 
-  const updateTime = (event) => {
-    setTime();
+  const updateInput = (event) => {
+    setInput(event.target.value);
   };
 
   return (
     <div>
       <div>
-        <h1>Hi</h1>
-        <div class="UtcConverter">
-          <label>Enter unix timestamp</label>
-          <br />
-          <input type={Number} onChange="updateTime"></input>
-        </div>
+        <input
+          type="number"
+          class="form-control"
+          onChange={updateInput}
+          placeholder={"e.g " + props.currentTime}
+        />
+        <br />
+        <Button onClick={convertInput}>Convert</Button>
       </div>
     </div>
   );
